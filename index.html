@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Alaa!</title>
+    <style>
+        /* Fullscreen styling */
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', sans-serif;
+            background: linear-gradient(90deg, #ff6ec4, #7873f5, #41d8dd);
+            background-size: 300% 300%;
+            animation: backgroundFlow 8s infinite;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 105, 180, 0.7);
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: floatHeart 5s ease-in infinite;
+            pointer-events: none;
+        }
+
+        .heart::after, .heart::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: inherit;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -25px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 25px;
+            top: 0;
+        }
+
+        /* Main card */
+        .card {
+            margin: 50px auto;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: cardGlow 3s infinite alternate ease-in-out;
+        }
+
+        /* Header typing effect with flashing colors */
+        .typing-text {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #ff69b4;
+            font-size: 2.5em;
+            font-weight: bold;
+            animation: typing 4s steps(30, end), blink 0.5s step-end infinite alternate, flashColors 2s infinite;
+            margin-bottom: 20px;
+        }
+
+        /* Love paragraph styling */
+        .love-paragraph {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+            text-align: left;
+        }
+
+        /* Keyframes */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from { border-color: transparent; }
+            to { border-color: #ff69b4; }
+        }
+
+        @keyframes flashColors {
+            0% { color: #ff6ec4; }
+            50% { color: #41d8dd; }
+            100% { color: #ff6ec4; }
+        }
+
+        @keyframes backgroundFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: scale(0.5) translateY(0);
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1) translateY(-100vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes cardGlow {
+            0% {
+                box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(255, 105, 180, 1);
+            }
+        }
+
+        /* Allow scrolling */
+        .content-wrapper {
+            min-height: 200vh; /* Ensures content exceeds screen height for scrolling */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Animated floating hearts -->
+        <div class="hearts-container"></div>
+
+        <!-- Main card -->
+        <div class="card">
+            <div>
+                <span class="typing-text">🎉 Happy Birthday, Alaa! 🎉</span>
+            </div>
+            <p class="love-paragraph">
+                HAPPY BIRTHDAY, ALOOOUIII! You're growing up so quick—you're 17 now! <br><br>
+                
+                I’m so proud of you, baby, and how far you have come. Through everything you’ve been through, just know that I’m always going to be proud of you and always going to be there for you. <br><br>
+                
+                You're such an amazing, loving, pure-hearted person, and you genuinely deserve the best in life. I know you’ll become an amazing doctor with a bright future that’s going to kick ass. <br><br>
+                
+                 I love you so, so, so much in a way where there no enough words for me to express how much im in love with you. You’re genuinely everything I could ever want in a person. You always manage to make me happy, smile, and laugh, and I’ll forever be grateful for that. <br><br>
+                
+                You’re the definition of perfection—from your hair, your face, your body, to your toes. Your silly, lame personality that never ceases to stop me from bursting into laughter. <br><br>
+                
+                I’m so beyond happy and proud to call you my beautiful girl, wife, and best friend. By the way, that shi I sent you ain’t no birthday gift—be ready for something amazing when I’m back. <br><br>
+                
+                Enjoy your day, my love. 3qbal al 100 sana w 3qbal I spend every moment with you! ❤️
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        const heartsContainer = document.querySelector('.hearts-container');
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDuration = `${Math.random() * 2 + 3}s`;
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
